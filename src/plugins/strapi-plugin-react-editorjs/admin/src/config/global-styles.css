@@ -1,0 +1,17 @@
+.cdx-block {
+  font-size: 20px;
+  line-height: 1.6;
+  color: #081d46;
+  font-weight: 400;
+  font-family: 'Georgia';
+}
+.ce-paragraph {
+  pointer-events: visible;
+}
+.ce-toolbox {
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+.ce-toolbox__button:not(:last-child) {
+  border-right: 1px solid gray;
+}

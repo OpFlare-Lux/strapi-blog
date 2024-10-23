@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { useStrapiApp } from '@strapi/strapi/admin';
 import PropTypes from 'prop-types';
 
-const MediaLibComponent = ({ isOpen = false, onToggle = () => {}, editor, onChange = () => {} }) => {
+const MediaLibComponent = ({ isOpen = false, onToggle = () => {}, onChange = () => {} }) => {
 
   const components = useStrapiApp('MediaLib', ({ components }) => components);
   const [data, setData] = useState(null);
