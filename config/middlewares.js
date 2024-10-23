@@ -17,8 +17,8 @@ module.exports = [
         directives: {
           'script-src': ["'self'", "'unsafe-inline'", "'unsafe-eval'", 'cdn.jsdelivr.net', 'https://maps.googleapis.com'],
           'connect-src': ["'self'", 'https:', 'http:', 'data:'],
-          'img-src': ["'self'", 'data:', 'blob:', 'http://localhost', 'https://maps.googleapis.com', 'https://maps.gstatic.com'],
-          'media-src': ["'self'", 'data:', 'blob:', 'http://localhost', 'https://maps.googleapis.com'],
+          'img-src': ["'self'", 'data:', 'blob:', 'http://localhost', 'https://pretty-badge-9a3ab2aca0.media.strapiapp.com'],
+          'media-src': ["'self'", 'data:', 'blob:', 'http://localhost', 'https://pretty-badge-9a3ab2aca0.media.strapiapp.com'],
         },
       },
     },
