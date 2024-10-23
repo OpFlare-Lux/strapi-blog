@@ -30,17 +30,8 @@
       "required": false,
       "allowedTypes": [
         "images",
-        "files",
-        "videos"
+        "files"
       ],
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "email": {
-      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -56,6 +47,14 @@
         }
       },
       "component": "shared.seo"
+    },
+    "email": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "email"
     }
   }
 }
