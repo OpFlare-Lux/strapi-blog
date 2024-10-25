@@ -1,25 +1,24 @@
-import React, { useState, useCallback } from 'react';
-import PropTypes from 'prop-types';
+import React, { useState, useCallback, FC } from 'react';
 import EditorJs from 'react-editor-js';
-import requiredTools from './requiredTools';
-// import customTools from '../../config/customTools';
+import customTools from '../../config/customTools';
 import customToolsHandler from '../../config/customTools';
-
-// import MediaLibAdapter from '../medialib/adapter'
 import MediaLibComponent from '../medialib/component';
-// import { MediaLib } from '../medialib/component';
-import {changeFunc, getToggleFunc} from '../medialib/utils';
 
-const Editor = ({ onChange, name, value }) => {
+interface editorJsTemplate {
+  name?: string;
+  value?: object;
+  onChange?: () => void;
+}
 
-  const [editorInstance, setEditorInstance] = useState(false);
-  const [mediaLibBlockIndex, setMediaLibBlockIndex] = useState(-1);
-  const [isMediaLibOpen, setIsMediaLibOpen] = useState(false);
+const Editor: FC<editorJsTemplate> = ({ onChange, name, value }) => {
+  const [editorInstance, setEditorInstance] = useState<EditorJS>(false);
+  const [mediaLibBlockIndex, setMediaLibBlockIndex] = useState<number>(-1);
+  const [isMediaLibOpen, setIsMediaLibOpen] = useState<boolean>(false);
   const handleToggleMediaLib = () => setIsMediaLibOpen((prev) => !prev);
-  const [imageComponent, setImageComponent] = useState(undefined);
-  const [imageCaptionComponent, setImageCaptionComponent] = useState(undefined);
-  const [componentFieldName, setComponentFieldName] = useState('src');
-  const [blockApi, setBlockApi] = useState(undefined);
+  const [imageComponent, setImageComponent] = useState<object>(undefined);
+  const [imageCaptionComponent, setImageCaptionComponent] = useState<object>(undefined);
+  const [componentFieldName, setComponentFieldName] = useState<string>('src');
+  const [blockApi, setBlockApi] = useState<object>(undefined);
 
   const handleMediaLibChange = useCallback((data) => {
 
@@ -75,7 +74,7 @@ const Editor = ({ onChange, name, value }) => {
               onChange({ target: { name, value: JSON.stringify(newData) } });
             }
           }}
-          tools={{...requiredTools, ...customToolsHandler(mediaLibToggleFunc)}}
+          tools={{...customTools, ...customToolsHandler(mediaLibToggleFunc)}}
           instanceRef={instance => setEditorInstance(instance)}
         />
       </div>
@@ -87,12 +86,6 @@ const Editor = ({ onChange, name, value }) => {
       />
     </>
   );
-};
-
-Editor.propTypes = {
-  onChange: PropTypes.func.isRequired,
-  name: PropTypes.string.isRequired,
-  value: PropTypes.string,
 };
 
 export default Editor;

@@ -8,10 +8,3 @@
 .ce-paragraph {
   pointer-events: visible;
 }
-.ce-toolbox {
-  border: 1px solid gray;
-  border-radius: 5px;
-}
-.ce-toolbox__button:not(:last-child) {
-  border-right: 1px solid gray;
-}
