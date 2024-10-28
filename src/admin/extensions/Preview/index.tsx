@@ -14,9 +14,17 @@ const PreviewButton: PanelComponent = ({
         'api::article.article': 'BLOG',
     };
 
-    const locale = currentRecord.locale || 'en';
-    const slug = currentRecord.slug || 'test';
-    const status = currentRecord.status || 'draft';
+    const locale = currentRecord?.locale || 'en';
+    const slug = currentRecord?.slug || 'test';
+    const status = currentRecord?.status || 'draft';
+
+    if (!currentRecord) {
+        return null;
+    }
+
+    if (model !== 'api::article.article') {
+        return null;
+    }
 
     window.Clipboard = (function(window, document, navigator) {
         var textArea,
