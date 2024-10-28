@@ -74,6 +74,11 @@
       "relation": "manyToOne",
       "target": "api::category.category",
       "inversedBy": "articles"
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::category.category"
     }
   }
 }

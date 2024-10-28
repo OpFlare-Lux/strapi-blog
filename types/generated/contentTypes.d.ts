@@ -531,6 +531,10 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
         };
       }>;
     category: Schema.Attribute.Relation<'manyToOne', 'api::category.category'>;
+    categories: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::category.category'
+    >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
