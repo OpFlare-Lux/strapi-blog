@@ -5,6 +5,7 @@ import Divider from './plugins/divider';
 import Note from './plugins/note';
 import BulletList from './plugins/bullet-list';
 import NumberedList from './plugins/numbered-list';
+import FAQ from './plugins/faq';
 
 const customToolsHandler = (mediaLibToggleFunc) => {
 
@@ -32,6 +33,10 @@ const customToolsHandler = (mediaLibToggleFunc) => {
         mediaLibToggleFunc
       }
     },
+    faq: {
+      class: FAQ,
+      inlineToolbar: true
+    }
   };
   return customTools;
 };
