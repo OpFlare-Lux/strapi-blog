@@ -14,9 +14,3 @@ module.exports = {
     }
   },
 };
-
-function printText (ctx, text, font, x, y, color) {
-  ctx.fillStyle = color;
-  ctx.font = font;
-  ctx.fillText(text, x, y);
-}
