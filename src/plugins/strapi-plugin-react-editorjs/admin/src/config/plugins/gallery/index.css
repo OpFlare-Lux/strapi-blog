@@ -1,0 +1,35 @@
+.gallery_layout {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin-top: 30px;
+  flex-direction: row;
+}
+.gallery_container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  gap: 12px;
+}
+.gallery_image {
+  height: 252px;
+  width: 323px;
+  min-height: 252px;
+  min-width: 323px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: 12px;
+}
+
+.gallery__empty_image {
+  height: 252px;
+  min-height: 252px;
+  width: 323px;
+  min-width: 323px;
+  border-radius: 12px;
+  background: url("./empty.png") no-repeat;
+  background-size: contain;
+  cursor: pointer;
+}

@@ -16,42 +16,28 @@ const Editor: FC<editorJsTemplate> = ({ onChange, name, value }) => {
   const [isMediaLibOpen, setIsMediaLibOpen] = useState<boolean>(false);
   const handleToggleMediaLib = () => setIsMediaLibOpen((prev) => !prev);
   const [imageComponent, setImageComponent] = useState<object>(undefined);
-  const [imageCaptionComponent, setImageCaptionComponent] = useState<object>(undefined);
-  const [componentFieldName, setComponentFieldName] = useState<string>('src');
   const [blockApi, setBlockApi] = useState<object>(undefined);
 
   const handleMediaLibChange = useCallback((data) => {
-
     if (imageComponent && data.length) {
-      imageComponent[componentFieldName] = data[0]['url'];
+      imageComponent['src'] = data[0]['url'];
       imageComponent['alt'] = data[0]['alt'];
       imageComponent['caption'] = data[0]['caption'];
     }
-    if (imageCaptionComponent && data.length) {
-      imageCaptionComponent['innerText'] = data[0]['caption'];
-    }
     blockApi.dispatchChange();
     setImageComponent(undefined);
-    setImageCaptionComponent(undefined);
     mediaLibToggleFunc();
   }, [imageComponent, editorInstance]);
 
-  const mediaLibToggleFunc = useCallback((idx, imageComponent, blockAPI, fieldName, imageCaptionComponent) => {
+  const mediaLibToggleFunc = useCallback((idx, imageComponent, blockAPI) => {
     if (idx || idx === 0) {
       setMediaLibBlockIndex(idx);
     }
     if (imageComponent) {
       setImageComponent(imageComponent);
     }
-    if (imageCaptionComponent) {
-      setImageCaptionComponent(imageCaptionComponent);
-    }
     if (blockAPI) {
       setBlockApi(blockAPI);
-    }
-
-    if (fieldName) {
-      setComponentFieldName(fieldName);
     }
     setIsMediaLibOpen((prev) => !prev);
   }, []);

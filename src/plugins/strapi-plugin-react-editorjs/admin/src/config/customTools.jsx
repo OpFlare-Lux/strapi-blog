@@ -1,11 +1,11 @@
 import "./global-styles.css";
-import ImgText from './plugins/img-text';
 import Header from './plugins/header';
 import Divider from './plugins/divider';
 import Note from './plugins/note';
 import BulletList from './plugins/bullet-list';
 import NumberedList from './plugins/numbered-list';
 import FAQ from './plugins/faq';
+import Gallery from './plugins/gallery';
 
 const customToolsHandler = (mediaLibToggleFunc) => {
 
@@ -27,8 +27,9 @@ const customToolsHandler = (mediaLibToggleFunc) => {
       class: NumberedList,
       inlineToolbar: true
     },
-    imgText: {
-      class: ImgText,
+    gallery: {
+      class: Gallery,
+      inlineToolbar: false,
       config: {
         mediaLibToggleFunc
       }

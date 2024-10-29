@@ -23,6 +23,7 @@ const MediaLibComponent = ({ isOpen = false, onToggle = () => {}, onChange = () 
   const handleSelectAssets = files => {
     const formattedFiles = files.map(f => ({
       alt: f.alternativeText || f.name,
+      caption: f.caption || f.name,
       url: prefixFileUrlWithBackendUrl(f.url),
       width: f.width,
       height: f.height,
