@@ -68,8 +68,6 @@ export default class Gallery {
           const emptyImage = document.createElement('img');
           emptyImage.classList.add('gallery__empty_image');
           emptyImage.addEventListener('click', async (e) => {
-            console.log(e, 'click');
-            console.log(this.config.mediaLibToggleFunc, 'this.config.mediaLibToggleFunc');
             if (this.config.mediaLibToggleFunc) {
               this.config.mediaLibToggleFunc( currentIndex, emptyImage, this.blockAPI );
             }

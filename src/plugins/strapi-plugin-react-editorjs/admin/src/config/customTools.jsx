@@ -6,6 +6,7 @@ import BulletList from './plugins/bullet-list';
 import NumberedList from './plugins/numbered-list';
 import FAQ from './plugins/faq';
 import Gallery from './plugins/gallery';
+import CTA from './plugins/cta';
 
 const customToolsHandler = (mediaLibToggleFunc) => {
 
@@ -37,7 +38,14 @@ const customToolsHandler = (mediaLibToggleFunc) => {
     faq: {
       class: FAQ,
       inlineToolbar: true
-    }
+    },
+    cta: {
+      class: CTA,
+      inlineToolbar: false,
+      config: {
+        mediaLibToggleFunc
+      }
+    },
   };
   return customTools;
 };
