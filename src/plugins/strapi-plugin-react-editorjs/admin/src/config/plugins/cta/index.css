@@ -8,15 +8,28 @@
   border: 1px solid var(--primary-grey, #D4D8DD);
   background: var(--primary-white, #FFFEFD);
   width: 100%;
-  margin-top: 30px;
+  height: 358px;
+  background: #FFE48A;
+}
+.cta_background {
+  background: url("./bg.png") no-repeat;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 48px;
 }
 .cta_image {
-  width: 248px;
-  height: 190px;
-  border-radius: 12px;
   background: url("./empty.png") no-repeat;
   background-size: contain;
   cursor: pointer;
+  width: 275px;
+  height: 162px;
+  top: 50px;
+  left: 48px;
+  gap: 0px;
+  border-radius: 10px;
+  opacity: 0px;
 }
 
 .card-image_image-button-text {
@@ -42,10 +55,9 @@
 .cta_content-body {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-end;
-  flex: 1 0 0;
+  align-items: flex-start;
   align-self: stretch;
+  gap: 12px;
 }
 
 .cta_header {
@@ -53,16 +65,12 @@
   align-items: center;
   gap: 4px;
   align-self: stretch;
-  color: #040019;
-
-  /* Desktop/H4 */
-  font-family: Fira Sans;
-  font-size: 24px;
-  font-style: normal;
+  color: #081D46;
+  font-family: Poppins;
+  font-size: 34px;
   font-weight: 700;
-  line-height: 28px; /* 116.667% */
-  outline: none;
-  padding: 4px;
+  line-height: 46px;
+  text-align: left;
 }
 
 .cta_description {
@@ -71,40 +79,32 @@
   align-items: center;
   gap: 4px;
   align-self: stretch;
-  color: #040019;
-
-  /* Desktop/P */
-  font-family: Fira Sans;
-  font-size: 16px;
-  font-style: normal;
+  font-family: Poppins;
+  font-size: 18px;
   font-weight: 400;
-  line-height: 24px; /* 150% */
-  margin-bottom: auto;
-  outline: none;
-  padding: 4px;
+  line-height: 30px;
+  text-align: left;
+  color: #081D46;
 }
 
 .cta_button {
   display: flex;
-  height: 48px;
-  padding: 16px;
   justify-content: center;
   align-items: center;
-  gap: 4px;
-  border-radius: 12px;
-  background: var(--primary-black, #040019);
-  color: var(--primary-white, #FFFEFD);
+  width: 204px;
+  height: 56px;
+  padding: 18px 40px 18px 40px;
+  gap: 8px;
+  border-radius: 10px;
+  opacity: 0px;
+  background: #022C7E;
+  color: #FFFFFF;
   text-align: center;
-
-  /* Desktop/P Medium */
-  font-family: Fira Sans;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 20px; /* 125% */
-  outline: none;
-  max-width: 160px;
-  min-width: 143px;
+  font-family: Inter;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 26px;
+  text-align: center;
 }
 .cta_link {
   margin-top: 12px;
@@ -114,10 +114,4 @@
   font-style: normal;
   border-radius: 5px;
   border: 1px solid black;
-}
-.cta_button:focus {
-  background: var(--status-light-red, #7474F1) !important;
-}
-.cta_button:hover {
-  background: var(--primary-purple, #7474F1);
 }

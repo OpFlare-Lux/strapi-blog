@@ -8,3 +8,8 @@
 .ce-paragraph {
   pointer-events: visible;
 }
+.codex-editor__redactor {
+  gap: 15px;
+  display: flex;
+  flex-direction: column;
+}

@@ -34,6 +34,10 @@ export default class CTA {
     this.wrapper = document.createElement('div');
     this.wrapper.classList.add('cta_layout');
     this.wrapper.contentEditable = "false";
+    const bg = document.createElement('div');
+    bg.classList.add('cta_background');
+    this.wrapper.appendChild(bg);
+
     const emptyImage = document.createElement('img');
     emptyImage.classList.add('cta_image');
     emptyImage.src = this.image || null;
@@ -44,11 +48,11 @@ export default class CTA {
         this.config.mediaLibToggleFunc( currentIndex, emptyImage, this.blockAPI );
       }
     });
-    this.wrapper.appendChild(emptyImage);
+    bg.appendChild(emptyImage);
     let content = document.createElement('div');
     content.classList.add('cta_content');
     content.contentEditable = "false";
-    this.wrapper.appendChild(content);
+    bg.appendChild(content);
     let contentBody = document.createElement('div');
     contentBody.classList.add('cta_content-body');
     contentBody.contentEditable = "false";
@@ -70,17 +74,13 @@ export default class CTA {
     button.contentEditable = 'true';
     button.classList.add('cta_button');
     button.innerText = this.buttonName;
-    content.appendChild(button);
+    contentBody.appendChild(button);
 
     let link = document.createElement('div');
     link.contentEditable = 'true';
     link.classList.add('cta_link');
     link.innerText = this.link;
-    content.appendChild(link);
-
-    this.wrapper.addEventListener('keydown', (e) => {
-      e.stopPropagation();
-    });
+    contentBody.appendChild(link);
 
     this.wrapper.addEventListener('paste', (e) => {
       e.stopPropagation();
