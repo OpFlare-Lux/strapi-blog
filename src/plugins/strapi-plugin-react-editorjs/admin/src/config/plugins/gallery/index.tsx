@@ -103,11 +103,14 @@ export default class Gallery {
     try {
       const result = [];
       const images = this.wrapper.querySelector('.gallery_container').childNodes.forEach (el => {
-        result.push({
-          'src': el.getAttribute('src'),
-          'caption': el.getAttribute('caption'),
-          'alt': el.getAttribute('alt'),
-        })
+        if (el.getAttribute('src') && el.getAttribute('src') !== null) {
+          result.push({
+            'src': el.getAttribute('src'),
+            'caption': el.getAttribute('caption'),
+            'alt': el.getAttribute('alt'),
+          });
+        }
+
       });
       return {
         'images': result
