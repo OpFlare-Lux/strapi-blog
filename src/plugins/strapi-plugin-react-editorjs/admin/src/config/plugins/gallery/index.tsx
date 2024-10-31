@@ -6,7 +6,7 @@ export default class Gallery {
     this.config = config || {};
     this.api = api;
     this.wrapper = undefined;
-    this.images = data.images;
+    this.images = data.images || [];
     this.blockAPI = block;
   }
 
@@ -34,6 +34,7 @@ export default class Gallery {
     gallery.contentEditable = "false";
     gallery.classList.add('gallery_container');
     this.wrapper.appendChild(gallery);
+
     for (let i in this.images) {
       const image = document.createElement('img');
       image.classList.add('gallery_image');
@@ -42,14 +43,17 @@ export default class Gallery {
       image.alt = this.images[i].alt;
       gallery.appendChild(image);
     }
-    const emptyImage = document.createElement('img');
-    emptyImage.classList.add('gallery__empty_image');
-    emptyImage.addEventListener('click', async (e) => {
-      if (this.config.mediaLibToggleFunc) {
-        this.config.mediaLibToggleFunc( currentIndex, emptyImage, this.blockAPI );
-      }
-    });
-    gallery.appendChild(emptyImage);
+    if (this.images.length === 0) {
+      const emptyImage = document.createElement('img');
+      emptyImage.classList.add('gallery__empty_image');
+      emptyImage.addEventListener('click', async (e) => {
+        if (this.config.mediaLibToggleFunc) {
+          this.config.mediaLibToggleFunc( currentIndex, emptyImage, this.blockAPI );
+        }
+      });
+      gallery.appendChild(emptyImage);
+    }
+
     return this.wrapper;
   }
 

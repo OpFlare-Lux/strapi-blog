@@ -50,7 +50,6 @@ export default class Note {
 
   async save() {
     try {
-      console.log(this.wrapper.querySelector('#input-text'));
       return {
         'title': this.title,
         'text': this.wrapper.querySelector('#input-text')?.innerText || 'test'
