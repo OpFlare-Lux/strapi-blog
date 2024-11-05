@@ -13,3 +13,17 @@
   font-family: 'Georgia';
   margin-left: 20px;
 }
+.numbered-list-item_title {
+  font-family: Poppins;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.6;
+  color: #081d46;
+}
+.numbered-list-item_description {
+  font-size: 20px;
+  line-height: 1.6;
+  color: #081d46;
+  font-weight: 400;
+  font-family: 'Georgia';
+}

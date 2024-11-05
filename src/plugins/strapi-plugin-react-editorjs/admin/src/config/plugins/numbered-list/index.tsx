@@ -4,8 +4,14 @@ import { sanitizerConfig } from '../helpers';
 export default class NumberedList {
   constructor({api, data, config, block}) {
     this.data = data.data || [
-      'Passport, valid for at least 3 months after the expiration date of the requested visa. With at least two blank pages.',
-      'Passport, valid for at least 3 months after the expiration date of the requested visa. With at least two blank pages.'
+      {
+        'title': 'Test title',
+        'description': 'Passport, valid for at least 3 months after the expiration date of the requested visa. With at least two blank pages.',
+      },
+      {
+        'title': 'Test title',
+        'description': 'Passport, valid for at least 3 months after the expiration date of the requested visa. With at least two blank pages.',
+      }
     ];
     this.api = api;
     this.wrapper = undefined;
@@ -33,9 +39,18 @@ export default class NumberedList {
     for (let i in this.data) {
       let li = document.createElement('li');
       li.classList.add('numbered-list-item');
-      li.contentEditable = true;
-      li.innerHTML = this.data[i];
+      li.contentEditable = false;
       this.wrapper.appendChild(li);
+      const title = document.createElement('div');
+      title.classList.add('numbered-list-item_title');
+      title.innerText = this.data[i].title;
+      title.contentEditable = true;
+      li.appendChild(title);
+      const description = document.createElement('div');
+      description.classList.add('numbered-list-item_description');
+      description.innerHTML = this.data[i].description;
+      description.contentEditable = true;
+      li.appendChild(description);
     }
 
     this.wrapper.addEventListener('paste', (e) => {
@@ -65,9 +80,18 @@ export default class NumberedList {
         onActivate: () => {
           let li = document.createElement('li');
           li.classList.add('numbered-list-item');
-          li.contentEditable = true;
-          li.innerHTML = 'Passport, valid for at least 3 months after the expiration date of the requested visa. With at least two blank pages.';
+          li.contentEditable = false;
           this.wrapper.appendChild(li);
+          const title = document.createElement('div');
+          title.classList.add('numbered-list-item_title');
+          title.innerText = 'Test title';
+          title.contentEditable = true;
+          li.appendChild(title);
+          const description = document.createElement('div');
+          description.classList.add('numbered-list-item_description');
+          description.innerHTML = 'Passport, valid for at least 3 months after the expiration date of the requested visa. With at least two blank pages.';
+          description.contentEditable = true;
+          li.appendChild(description);
         },
         closeOnActivate: true,
         isDisabled: false
@@ -95,8 +119,12 @@ export default class NumberedList {
       const records = this.wrapper.querySelectorAll('li')
       let items = [];
       for (let i in records) {
-        if (records[i].innerHTML) {
-          items.push(records[i].innerHTML);
+        if (records[i] instanceof HTMLElement) {
+          const title = records[i].querySelector('.numbered-list-item_title')?.innerText || null;
+          const description = records[i].querySelector('.numbered-list-item_description')?.innerHTML || null;
+          if (title && description) {
+            items.push({ title, description });
+          }
         }
       }
 
