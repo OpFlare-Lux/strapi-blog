@@ -652,6 +652,12 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
         };
       }>;
     articles: Schema.Attribute.Relation<'oneToMany', 'api::article.article'>;
+    ogImage: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
