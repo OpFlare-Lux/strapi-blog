@@ -7,6 +7,8 @@ import NumberedList from './plugins/numbered-list';
 import FAQ from './plugins/faq';
 import Gallery from './plugins/gallery';
 import CTA from './plugins/cta';
+import Table from './plugins/table';
+import Highlight from './plugins/highlights';
 
 const customToolsHandler = (mediaLibToggleFunc) => {
 
@@ -45,6 +47,14 @@ const customToolsHandler = (mediaLibToggleFunc) => {
       config: {
         mediaLibToggleFunc
       }
+    },
+    table: {
+      class: Table,
+      inlineToolbar: true
+    },
+    highlight: {
+      class: Highlight,
+      inlineToolbar: true,
     },
   };
   return customTools;
