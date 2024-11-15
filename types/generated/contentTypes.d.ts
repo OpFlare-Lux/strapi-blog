@@ -523,7 +523,12 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
       }>;
     authors: Schema.Attribute.Relation<'oneToMany', 'api::author.author'>;
     content: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<'plugin::editorjs-editor.EditorJS'>;
+      Schema.Attribute.CustomField<'plugin::editorjs-editor.EditorJS'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     seo: Schema.Attribute.Component<'shared.seo', false> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {

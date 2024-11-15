@@ -57,7 +57,12 @@
     },
     "content": {
       "type": "customField",
-      "customField": "plugin::editorjs-editor.EditorJS"
+      "customField": "plugin::editorjs-editor.EditorJS",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "seo": {
       "type": "component",
