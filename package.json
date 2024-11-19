@@ -12,12 +12,16 @@
     "strapi": "strapi"
   },
   "dependencies": {
+    "@editorjs/editorjs": "2.29.1",
+    "@editorjs/paragraph": "^2.11.6",
     "@strapi/plugin-cloud": "5.0.0",
     "@strapi/plugin-users-permissions": "5.0.0",
-    "@strapi/strapi": "5.0.0",
+    "@strapi/strapi": "^5.4.0",
+    "axios": "^1.7.7",
     "better-sqlite3": "9.4.3",
     "fontconfig": "^0.5.0",
     "fs-extra": "^10.0.0",
+    "html-to-image": "^1.11.11",
     "mime-types": "^2.1.27",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
