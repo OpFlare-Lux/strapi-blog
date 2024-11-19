@@ -12,14 +12,16 @@ import { useFetchClient } from '@strapi/strapi/admin';
 const Generator = React.forwardRef(() => {
   const { get } = useFetchClient();
   const { form, contentType, id  } = useContentManagerContext();
-  const { values } = form;
+  const { values, initialValues } = form;
   const [message, setMessage] = useState('');
   const [category, setCategory] = useState('');
+  const [recId, setRecId] = useState(null);
   let error = '';
   const apiId  = contentType.apiID;
   const imageSrc = values.image?.url || null;
   const title = values.title || null;
-  
+  console.log(values,'values')
+  console.log(initialValues,'initialValues')
   if (!values.image) {
     error = 'Please upload Image';
   }
@@ -31,6 +33,7 @@ const Generator = React.forwardRef(() => {
       try {
         const rec = await get(`/content-manager/collection-types/api::article.article/${id}?populate[category]=name`);
         setCategory(rec.data.data.category?.name);
+        setRecId(rec.data.data.id);
       } catch (e) {
         console.log(e,'E');
       }
@@ -51,7 +54,7 @@ const Generator = React.forwardRef(() => {
       const form = new FormData();
       const imageFile = new File([previewImageBlob], `${new Date().getTime()}_${id}.jpg`, { type: 'image/jpg' });
       form.append('files', imageFile);
-      form.append('refId', id);
+      form.append('refId', recId);
       form.append('ref', `api::${apiId}.${apiId}`);
       form.append('field', 'ogImage');
       const response = await axios.post('/api/upload', form, {
@@ -60,6 +63,7 @@ const Generator = React.forwardRef(() => {
           'Content-Type': 'multipart/form-data'
         },
       });
+      console.log(response,'response');
       const updateRecResponse = await axios.put(`/api/articles/${id}`, {
         data: {
           ogImage: response?.data[0]?.id
@@ -70,6 +74,7 @@ const Generator = React.forwardRef(() => {
           'Content-Type': 'multipart/form-data'
         },
       });
+      console.log(updateRecResponse,'updateRecResponse');
     
       if (updateRecResponse.status == 200) {
         setMessage('Image successfully uploaded. Please refresh the page.');
