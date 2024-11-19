@@ -56,7 +56,7 @@ const Generator = React.forwardRef(() => {
       form.append('field', 'ogImage');
       const response = await axios.post('/api/upload', form, {
         headers: {
-          'Authorization': `Bearer ff872c25aa615793e994060d47dbb6e268f637f575223312a51a1b6f4e5eaf7fbcc36c7c38d9bc5ab27331f6b35b1810b8426aa453c4a4388c618a772d0ded43260b7e5893de14ed4e0bd14650860386081826757678d102cfd6c8af3eab26c41b9011eedac6da4da7550a1fd000db51375b0d0499993411da09976ac118a00e`,
+          'Authorization': `Bearer f7a4520ea8bedd8878b7bac102192b1dd900c04815035b813c8910cc51954976ba4fcc6a293e89713d47354fdd8161d1f3da4807d1b16d8d570269c850ca1d17887a6da50e0ead4c316c4436af7ace8b88df07293ca8e0cde0ec101f1a03c82293a6a1c8fc2dcde4b3b8567f9df19e2898b3c8522c0a1b82f981ee4fb1be7425`,
           'Content-Type': 'multipart/form-data'
         },
       });
@@ -66,7 +66,7 @@ const Generator = React.forwardRef(() => {
         }
       }, {
         headers: {
-          'Authorization': `Bearer ff872c25aa615793e994060d47dbb6e268f637f575223312a51a1b6f4e5eaf7fbcc36c7c38d9bc5ab27331f6b35b1810b8426aa453c4a4388c618a772d0ded43260b7e5893de14ed4e0bd14650860386081826757678d102cfd6c8af3eab26c41b9011eedac6da4da7550a1fd000db51375b0d0499993411da09976ac118a00e`,
+          'Authorization': `Bearer f7a4520ea8bedd8878b7bac102192b1dd900c04815035b813c8910cc51954976ba4fcc6a293e89713d47354fdd8161d1f3da4807d1b16d8d570269c850ca1d17887a6da50e0ead4c316c4436af7ace8b88df07293ca8e0cde0ec101f1a03c82293a6a1c8fc2dcde4b3b8567f9df19e2898b3c8522c0a1b82f981ee4fb1be7425`,
           'Content-Type': 'multipart/form-data'
         },
       });
