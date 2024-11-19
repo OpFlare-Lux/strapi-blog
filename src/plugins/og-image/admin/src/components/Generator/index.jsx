@@ -83,7 +83,7 @@ const Generator = () => {
     }
   };
   const handleRefresh = () => {
-
+    console.log(process.env,'process.env');
   };
 
   return (
@@ -92,7 +92,6 @@ const Generator = () => {
         {error.length == 0 && values.image && (
           <div className="generator_container">
             <div className="generator_buttons">
-              <Button onClick={handleRefresh}>Refresh</Button>
               <Button onClick={handleSave}>Save</Button>
             </div>
             <div className="info_message">{message}</div>
