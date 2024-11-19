@@ -1,0 +1,29 @@
+{
+  "name": "og-image",
+  "version": "0.0.0-development",
+  "description": "Plugin for Strapi Headless CMS, adding an og image generator",
+  "homepage": "",
+  "strapi": {
+    "icon": "plug",
+    "name": "og-image",
+    "displayName": "OG Image Generator",
+    "description": "Plugin for Strapi Headless CMS, adding an og image generator",
+    "required": true,
+    "kind": "plugin"
+  },
+  "author": {
+    "name": "Serhii Suhal",
+    "email": "vio3273@gmail.com"
+  },
+  "maintainers": [
+    {
+      "name": "Serhii Suhal",
+      "email": "vio3273@gmail.com"
+    }
+  ],
+  "engines": {
+    "node": ">=16.0.0 <=20.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}
