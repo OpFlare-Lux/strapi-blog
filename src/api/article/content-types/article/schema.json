@@ -106,6 +106,15 @@
         }
       },
       "type": "integer"
+    },
+    "ogImageGenerator": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "customField",
+      "customField": "plugin::og-image.og-image"
     }
   }
 }
