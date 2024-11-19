@@ -9,10 +9,10 @@ import { Button } from '@strapi/design-system';
 import axios from 'axios';
 import { useFetchClient } from '@strapi/strapi/admin';
 
-const Generator = React.forwardRef(() => {
+const Generator = () => {
   const { get } = useFetchClient();
   const { form, contentType, id  } = useContentManagerContext();
-  const { values, initialValues } = form;
+  const { values } = form;
   const [message, setMessage] = useState('');
   const [category, setCategory] = useState('');
   const [recId, setRecId] = useState(null);
@@ -20,8 +20,7 @@ const Generator = React.forwardRef(() => {
   const apiId  = contentType.apiID;
   const imageSrc = values.image?.url || null;
   const title = values.title || null;
-  console.log(values,'values')
-  console.log(initialValues,'initialValues')
+
   if (!values.image) {
     error = 'Please upload Image';
   }
@@ -47,6 +46,7 @@ const Generator = React.forwardRef(() => {
   if(!allowedUID.includes(apiId)) {
     error = 'Allowed only for Article type';
   }
+  
 
   const handleSave = async () => {
     try {
@@ -59,22 +59,21 @@ const Generator = React.forwardRef(() => {
       form.append('field', 'ogImage');
       const response = await axios.post('/api/upload', form, {
         headers: {
-          'Authorization': `Bearer f7a4520ea8bedd8878b7bac102192b1dd900c04815035b813c8910cc51954976ba4fcc6a293e89713d47354fdd8161d1f3da4807d1b16d8d570269c850ca1d17887a6da50e0ead4c316c4436af7ace8b88df07293ca8e0cde0ec101f1a03c82293a6a1c8fc2dcde4b3b8567f9df19e2898b3c8522c0a1b82f981ee4fb1be7425`,
+          'Authorization': `Bearer ${process.env.STRAPI_ADMIN_UPLOAD_TOKEN}`,
           'Content-Type': 'multipart/form-data'
         },
       });
-      console.log(response,'response');
+
       const updateRecResponse = await axios.put(`/api/articles/${id}`, {
         data: {
           ogImage: response?.data[0]?.id
         }
       }, {
         headers: {
-          'Authorization': `Bearer f7a4520ea8bedd8878b7bac102192b1dd900c04815035b813c8910cc51954976ba4fcc6a293e89713d47354fdd8161d1f3da4807d1b16d8d570269c850ca1d17887a6da50e0ead4c316c4436af7ace8b88df07293ca8e0cde0ec101f1a03c82293a6a1c8fc2dcde4b3b8567f9df19e2898b3c8522c0a1b82f981ee4fb1be7425`,
+          'Authorization': `Bearer ${process.env.STRAPI_ADMIN_UPLOAD_TOKEN}`,
           'Content-Type': 'multipart/form-data'
         },
       });
-      console.log(updateRecResponse,'updateRecResponse');
     
       if (updateRecResponse.status == 200) {
         setMessage('Image successfully uploaded. Please refresh the page.');
@@ -107,7 +106,7 @@ const Generator = React.forwardRef(() => {
     </>
   );
 
-  });
+  };
   
   export default Generator;
   
