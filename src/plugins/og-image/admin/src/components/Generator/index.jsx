@@ -16,6 +16,7 @@ const Generator = () => {
   const [message, setMessage] = useState('');
   const [category, setCategory] = useState('');
   const [recId, setRecId] = useState(null);
+  const [strapiToken, setStrapiToken] = useState(null);
   let error = '';
   const apiId  = contentType.apiID;
   const imageSrc = values.image?.url || null;
@@ -37,6 +38,18 @@ const Generator = () => {
         console.log(e,'E');
       }
     };
+    const updateToken = async () => {
+      try {
+        const res = await get(`/og-image/get-address`);
+        console.log(res.data,"DATA");
+        setStrapiToken(res.data.data.token);
+      } catch (e) {
+        console.log(e,'E');
+      }
+    };
+    if (!strapiToken || strapiToken == null) {
+      updateToken();
+    }
     if (category.length == 0) {
       handleRecord();
     }
@@ -59,7 +72,7 @@ const Generator = () => {
       form.append('field', 'ogImage');
       const response = await axios.post('/api/upload', form, {
         headers: {
-          'Authorization': `Bearer ${process.env.STRAPI_ADMIN_UPLOAD_TOKEN}`,
+          'Authorization': `Bearer ${strapiToken}`,
           'Content-Type': 'multipart/form-data'
         },
       });
@@ -70,7 +83,7 @@ const Generator = () => {
         }
       }, {
         headers: {
-          'Authorization': `Bearer ${process.env.STRAPI_ADMIN_UPLOAD_TOKEN}`,
+          'Authorization': `Bearer ${strapiToken}`,
           'Content-Type': 'multipart/form-data'
         },
       });
@@ -83,9 +96,7 @@ const Generator = () => {
     }
   };
   const handleRefresh = async () => {
-    const res = await get(`/og-image/get-address`);
-    console.log(res,'res')
-    console.log(process.env,'process.env');
+
   };
 
   return (
