@@ -82,7 +82,9 @@ const Generator = () => {
       console.log(e,'Handle Save error.');
     }
   };
-  const handleRefresh = () => {
+  const handleRefresh = async () => {
+    const res = await get(`/og-image/get-address`);
+    console.log(res,'res')
     console.log(process.env,'process.env');
   };
 
