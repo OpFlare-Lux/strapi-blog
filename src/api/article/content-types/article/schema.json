@@ -115,6 +115,14 @@
       },
       "type": "customField",
       "customField": "plugin::og-image.og-image"
+    },
+    "redirectUrl": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
     }
   }
 }

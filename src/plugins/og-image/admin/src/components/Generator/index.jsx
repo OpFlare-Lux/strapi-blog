@@ -41,7 +41,7 @@ const Generator = () => {
     const updateToken = async () => {
       try {
         const res = await get(`/og-image/get-address`);
-        console.log(res.data.token,"DATA");
+     
         setStrapiToken(res.data.token);
       } catch (e) {
         console.log(e,'E');
