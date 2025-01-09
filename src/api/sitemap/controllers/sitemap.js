@@ -21,7 +21,7 @@ function getFormattedArticles( articles ) {
   let formatted = [];
   for (let i in articles) {
     let article = {
-      'loc': `https://easybiz.lu/${articles[i].locale}/${articles[i].slug}`,
+      'loc': `https://easybiz.lu/${articles[i].locale}/blog/${articles[i].slug}`,
       'lastmod': articles[i].updatedAt,
     };
     formatted.push(article);
