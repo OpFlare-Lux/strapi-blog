@@ -409,6 +409,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
         };
       }>;
     image: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
